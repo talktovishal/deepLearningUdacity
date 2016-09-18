@@ -1,2 +1,2 @@
 # deepLearningUdacity
-tensorflow
+Notes from the tersorflow lectures and exercises.
