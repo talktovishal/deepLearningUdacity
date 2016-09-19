@@ -1108,8 +1108,8 @@ ul
 
 <h1>Basics</h1>
 
-<p class=MsoNormal>What are you minimizing = Cross-Entropy – distance between
-the two vectors – the <span class=SpellE>softmax</span> from the output layer
+<p class=MsoNormal>What are you minimizing = Cross-Entropy Â– distance between
+the two vectors Â– the <span class=SpellE>softmax</span> from the output layer
 and the expected one-hot encoding</p>
 
 <p class=MsoNormal>Big picture (note no deep learning, just a simple NN). Take
@@ -1180,7 +1180,7 @@ src="UdacityTensorflowAssignment2_files/image008.jpg" v:shapes="Picture_x0020_3"
 
 <h1><o:p>&nbsp;</o:p></h1>
 
-<p class=MsoNormal>How do you do it – SCD – Stochastic Gradient descent</p>
+<p class=MsoNormal>How do you do it Â– SCD Â– Stochastic Gradient descent</p>
 
 <p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
  id="Picture_x0020_5" o:spid="_x0000_i1033" type="#_x0000_t75" style='width:304.5pt;
@@ -1213,7 +1213,7 @@ move accordingly.</p>
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
 style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><span
 style='mso-list:Ignore'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span></span><![endif]>Learning rate – slowly reduce it.</p>
+</span></span></span><![endif]>Learning rate Â– slowly reduce it.</p>
 
 <p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span
 style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><span
@@ -1232,7 +1232,7 @@ src="UdacityTensorflowAssignment2_files/image014.jpg" v:shapes="Picture_x0020_7"
 
 <p class=MsoListParagraphCxSpLast><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal>Final few pointers. “<span class=SpellE>Adagrad</span>”
+<p class=MsoNormal>Final few pointers. Â“<span class=SpellE>Adagrad</span>Â”
 takes care of the first 3 but nothing beats hand tuned optimization.</p>
 
 <p class=MsoNormal><span style='mso-no-proof:yes'><!--[if gte vml 1]><v:shape
@@ -1344,7 +1344,7 @@ probabilities.<o:p></o:p></span></p>
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
 
-<p class=MsoNormal>Now, let’s look at the actual code + explanation for <span
+<p class=MsoNormal>Now, letÂ’s look at the actual code + explanation for <span
 class=SpellE>tensorflow</span>.</p>
 
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
@@ -1371,7 +1371,7 @@ style='font-family:"Courier New"'> = 128<o:p></o:p></span></p>
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
 "Courier New"'>graph = <span class=SpellE><span class=GramE>tf.Graph</span></span>()
 <span style='color:#00B050'>##Now you create the structure in <span
-class=SpellE>tensorflow</span>, it’s a graph (generic structure)</span><o:p></o:p></span></p>
+class=SpellE>tensorflow</span>, itÂ’s a graph (generic structure)</span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
 "Courier New"'>with <span class=SpellE>graph.as_<span class=GramE>default</span></span><span
@@ -1382,22 +1382,22 @@ get the default graph. SO there can be more than one graph</span><o:p></o:p></sp
 "Courier New"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span style='color:#00B050'>#
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span style='color:#00B050'>#
 Input data. For the training data, we use a placeholder that will be fed<o:p></o:p></span></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span># at run
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span># at run
 time with a training <span class=SpellE>minibatch</span>.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>tf_train_dataset</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>tf_train_dataset</span>
 = <span class=SpellE><span class=GramE>tf.<span style='background:yellow;
 mso-highlight:yellow'>placeholder</span></span></span>(tf.float32, shape=(<span
 class=SpellE>batch_size</span>, <span class=SpellE>image_size</span> * <span
 class=SpellE>image_size</span>))<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>tf_train_labels</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>tf_train_labels</span>
 = <span class=SpellE><span class=GramE>tf.placeholder</span></span>(tf.float32,
 shape=(<span class=SpellE>batch_size</span>, <span class=SpellE>num_labels</span>))<o:p></o:p></span></p>
 
@@ -1405,58 +1405,58 @@ shape=(<span class=SpellE>batch_size</span>, <span class=SpellE>num_labels</span
 "Courier New"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>#notice
-two kind of variables, constant that’s already bound and “placeholder” that
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>#notice
+two kind of variables, constant thatÂ’s already bound and Â“placeholderÂ” that
 will be bound </span><span style='font-family:"Courier New"'><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>tf_valid_dataset</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>tf_valid_dataset</span>
 = <span class=SpellE><span class=GramE>tf.<span style='background:lightgrey;
 mso-highlight:lightgrey'>constant</span></span></span>(<span class=SpellE>valid_dataset</span>)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>tf_test_dataset</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>tf_test_dataset</span>
 = <span class=SpellE><span class=GramE>tf.constant</span></span>(<span
 class=SpellE>test_dataset</span>)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>##END same
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>##END same
 as before <o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+"Courier New"'><span style='mso-spacerun:yes'>Â Â  </span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>## START creation
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>## START creation
 of new hidden layer</span><span style='font-family:"Courier New"'><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span style='color:#00B050'>#
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span style='color:#00B050'>#
 new hidden layer, this is another <b style='mso-bidi-font-weight:normal'><u>HYPERPARAMETER</u></b>
 that can be tuned.<o:p></o:p></span></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>hidden_nodes</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>hidden_nodes</span>
 = <span style='background:yellow;mso-highlight:yellow'>1024</span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
 "Courier New"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span style='color:#00B050'>##
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span style='color:#00B050'>##
 <span class=GramE>NOTE::</span> instead of <span class=SpellE>num_lables</span>
 you have this as 784*1024. And then later the <span class=SpellE>weigths</span>
 is 1024 * 10. Earlier, the <span class=SpellE>weigths</span> we 784 * 10<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></span></p>
+style='mso-spacerun:yes'>Â  </span><o:p></o:p></span></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><i style='mso-bidi-font-style:
 normal'><span style='font-family:"Courier New";color:#00B050'><span
-style='mso-spacerun:yes'>  </span>## When you train a model, you use variables
+style='mso-spacerun:yes'>Â  </span>## When you train a model, you use variables
 to hold and update parameters. Variables are in-memory buffers containing tensors.
-They must be explicitly<span style='mso-spacerun:yes'>              
+They must be explicitly<span style='mso-spacerun:yes'>Â Â Â Â Â Â Â Â Â Â Â Â Â Â 
 </span>initialized and can be saved to disk during and after training. You can
 later restore saved values to exercise or <span class=SpellE>analyse</span> the
 model.<o:p></o:p></span></i></p>
@@ -1501,19 +1501,19 @@ mso-fareast-theme-font:major-fareast;color:#00B050;background:#EFF0F1'><o:p></o:
 "Courier New"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>hidden_weights</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>hidden_weights</span>
 = <span class=SpellE><span class=GramE>tf.Variable</span></span>(<span
 class=SpellE>tf.truncated_normal</span>([<span class=SpellE>image_size</span> *
 <span class=SpellE>image_size</span>, <span class=SpellE>hidden_nodes</span>])
 )<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>hidden_biases</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>hidden_biases</span>
 = <span class=SpellE><span class=GramE>tf.Variable</span></span>( <span
 class=SpellE>tf.zeros</span>([<span class=SpellE>hidden_nodes</span>]))<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>hidden_layer</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>hidden_layer</span>
 = </span><a
 href="https://www.tensorflow.org/versions/0.6.0/api_docs/python/nn.html#relu"><span
 class=SpellE><span style='font-family:"Courier New"'>tf.<span class=GramE>nn.relu</span></span></span></a><span
@@ -1522,24 +1522,24 @@ class=SpellE>tf_train_dataset</span>, <span class=SpellE>hidden_weights</span>)
 + <span class=SpellE>hidden_biases</span>)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span style='color:#00B050'>#
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span style='color:#00B050'>#
 Variables.</span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span>weights = <span
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span>weights = <span
 class=SpellE><span class=GramE>tf.Variable</span></span>( <span class=SpellE>tf.truncated_normal</span>([<span
 class=SpellE>hidden_nodes</span>, <span class=SpellE>num_labels</span>])) <o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span>biases = <span
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span>biases = <span
 class=SpellE><span class=GramE>tf.Variable</span></span>(<span class=SpellE>tf.zeros</span>([<span
 class=SpellE>num_labels</span>]))<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>## END creation
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>## END creation
 of new hidden layer</span><span style='font-family:"Courier New"'><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
@@ -1549,40 +1549,40 @@ of new hidden layer</span><span style='font-family:"Courier New"'><o:p></o:p></s
 "Courier New"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span># Training
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span># Training
 computation.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span>logits = <span
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span>logits = <span
 class=SpellE><span class=GramE>tf.matmul</span></span>(<span class=SpellE>hidden_layer</span>,
 weights) + biases<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>## what is
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>## what is
 <span class=SpellE>numpy</span> axis --
 http://www.sam.math.ethz.ch/~raoulb/teaching/PythonTutorial/intro_numpy.html<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>##
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>##
 example: 0 = rows, 1 = columns for 2 dimensional <span class=GramE>matrix</span>.<span
-style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+style='mso-spacerun:yes'>Â  </span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>## what
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>## what
 does reduce mean do: </span><a
 href="http://stackoverflow.com/questions/34236252/difference-between-np-mean-and-tf-reduce-mean-numpy-tensorflow"><span
 style='font-family:"Courier New";color:#00B050'>http://stackoverflow.com/questions/34236252/difference-between-np-mean-and-tf-reduce-mean-numpy-tensorflow</span></a><span
 style='font-family:"Courier New";color:#00B050'><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>## reduce
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>## reduce
 mean = average mean across the axis or dimensions of the entire batch size.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span>loss = <span
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span>loss = <span
 class=SpellE>tf.<span style='font-family:"Calibri",sans-serif;mso-ascii-theme-font:
 minor-latin;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
 mso-bidi-theme-font:minor-bidi'><a
@@ -1599,47 +1599,47 @@ style='font-family:"Courier New"'>softmax_cross_entropy_with_logits</span></a></
 "Courier New"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>##maybe a
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>##maybe a
 better name for loss would be <span class=SpellE>average_loss</span>???<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>    </span><o:p></o:p></span></p>
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â  </span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>#
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>#
 Optimizer.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span># 0.5 =
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span># 0.5 =
 learning rate<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span>optimizer = </span><a
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span>optimizer = </span><a
 href="https://www.tensorflow.org/versions/r0.10/api_docs/python/train.html"><span
 class=SpellE><span class=GramE><span style='font-family:"Courier New"'>tf.train</span></span><span
 style='font-family:"Courier New"'>.GradientDescentOptimizer</span></span></a><span
 style='font-family:"Courier New"'>(0.5).minimize(loss)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>  </span>#
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â  </span>#
 Predictions for the training, validation, and test data.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>train_prediction</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>train_prediction</span>
 = <span class=SpellE>tf.<span class=GramE>nn.softmax</span></span>(logits)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>valid_relu</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>valid_relu</span>
 = <span class=SpellE>tf.<span class=GramE>nn.relu</span></span>(<span
-style='mso-spacerun:yes'>  </span><span class=SpellE>tf.matmul</span>(<span
+style='mso-spacerun:yes'>Â  </span><span class=SpellE>tf.matmul</span>(<span
 class=SpellE>tf_valid_dataset</span>, <span class=SpellE>hidden_weights</span>)
 + <span class=SpellE>hidden_biases</span>)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>valid_prediction</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>valid_prediction</span>
 = <span class=SpellE>tf.<span class=GramE>nn.softmax</span></span>( <span
 class=SpellE>tf.matmul</span>(<span class=SpellE>valid_relu</span>, weights) +
 biases) <o:p></o:p></span></p>
@@ -1648,13 +1648,13 @@ biases) <o:p></o:p></span></p>
 "Courier New"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>test_relu</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>test_relu</span>
 = <span class=SpellE>tf.<span class=GramE>nn.relu</span></span>( <span
 class=SpellE>tf.matmul</span>( <span class=SpellE>tf_test_dataset</span>, <span
 class=SpellE>hidden_weights</span>) + <span class=SpellE>hidden_biases</span>)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE>test_prediction</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE>test_prediction</span>
 = <span class=SpellE>tf.<span class=GramE>nn.softmax</span></span>(<span
 class=SpellE>tf.matmul</span>(<span class=SpellE>test_relu</span>, weights) +
 biases)<o:p></o:p></span></p>
@@ -1683,96 +1683,96 @@ style='font-family:"Courier New"'> = 3001<o:p></o:p></span></p>
 as session:<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=SpellE><span
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=SpellE><span
 class=GramE>tf.initialize</span>_all_variables</span>().run()<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=GramE><span
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=GramE><span
 style='color:#00B050'>print(</span></span><span style='color:#00B050'>&quot;Initialized
 all variables. ONLY do it ONCE for the session.&quot;)<o:p></o:p></span></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span>for step in range(<span
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span>for step in range(<span
 class=SpellE>num_steps</span>):<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>    </span># Pick
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â Â Â  </span># Pick
 an offset within the training data, which has been randomized.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>    </span># Note:
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â Â Â  </span># Note:
 we could use better randomization across epochs.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>    </span>offset = (step * <span
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â  </span>offset = (step * <span
 class=SpellE>batch_size</span>) % (<span class=SpellE>train_<span class=GramE>labels.shape</span></span>[0]
 - <span class=SpellE>batch_size</span>)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>    </span>#
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â Â Â  </span>#
 Generate a <span class=SpellE>minibatch</span>.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>    </span><span class=SpellE>batch_data</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â  </span><span class=SpellE>batch_data</span>
 = <span class=SpellE>train_<span class=GramE>dataset</span></span><span
 class=GramE>[</span>offset:(offset + <span class=SpellE>batch_size</span>), :]<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>    </span><span class=SpellE>batch_labels</span>
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â  </span><span class=SpellE>batch_labels</span>
 = <span class=SpellE>train_<span class=GramE>labels</span></span><span
 class=GramE>[</span>offset:(offset + <span class=SpellE>batch_size</span>), :]<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>    </span>#
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â Â Â  </span>#
 Prepare a dictionary telling the session where to feed the <span class=SpellE>minibatch</span>.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>    </span># The
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â Â Â  </span># The
 key of the dictionary is the placeholder node of the graph to be fed,<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>    </span># and
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â Â Â  </span># and
 the value is the <span class=SpellE>numpy</span> array to feed to it.<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New";color:#00B050'><span style='mso-spacerun:yes'>    </span>#
-PLACEHOLDER – bound to actual values in RUNTIME<o:p></o:p></span></p>
+"Courier New";color:#00B050'><span style='mso-spacerun:yes'>Â Â Â  </span>#
+PLACEHOLDER Â– bound to actual values in RUNTIME<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>    </span><span class=SpellE><span
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â  </span><span class=SpellE><span
 style='color:#00B050;background:yellow;mso-highlight:yellow'>feed_dict</span></span>
 = {<span class=SpellE>tf_train_<span class=GramE>dataset</span></span><span
 class=GramE> :</span> <span class=SpellE>batch_data</span>, <span class=SpellE>tf_train_labels</span>
 : <span class=SpellE>batch_labels</span>}<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>    </span>_, l, predictions = <span
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â  </span>_, l, predictions = <span
 class=SpellE><span class=GramE>session.run</span></span><span class=GramE>(</span><o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>      </span>[optimizer, loss, <span
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â Â Â  </span>[optimizer, loss, <span
 class=SpellE>train_prediction</span>], <span class=SpellE>feed_dict</span>=<span
 class=SpellE>feed_dict</span>)<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>    </span>if (step % 500 == 0):<o:p></o:p></span></p>
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â  </span>if (step % 500 == 0):<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>      </span><span class=GramE>print(</span>&quot;<span
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â Â Â  </span><span class=GramE>print(</span>&quot;<span
 class=SpellE>Minibatch</span> loss at step %d: %f&quot; % (step, l))<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>      </span><span class=GramE>print(</span>&quot;<span
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â Â Â  </span><span class=GramE>print(</span>&quot;<span
 class=SpellE>Minibatch</span> accuracy: %.1f%%&quot; % accuracy(predictions, <span
 class=SpellE>batch_labels</span>))<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>   </span><span
-style='mso-spacerun:yes'>   </span><span class=GramE>print(</span>&quot;Validation
+"Courier New"'><span style='mso-spacerun:yes'>Â Â  </span><span
+style='mso-spacerun:yes'>Â Â Â </span><span class=GramE>print(</span>&quot;Validation
 accuracy: %.1f%%&quot; % accuracy(<o:p></o:p></span></p>
 
 <p class=MsoNormalCxSpMiddle style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>        </span><span
+"Courier New"'><span style='mso-spacerun:yes'>Â Â Â Â Â Â Â  </span><span
 class=SpellE>valid_<span class=GramE>prediction.eval</span></span>(), <span
 class=SpellE>valid_labels</span>))<o:p></o:p></span></p>
 
@@ -1780,7 +1780,7 @@ class=SpellE>valid_labels</span>))<o:p></o:p></span></p>
 "Courier New"'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormalCxSpLast style='line-height:normal'><span style='font-family:
-"Courier New"'><span style='mso-spacerun:yes'>  </span><span class=GramE><span
+"Courier New"'><span style='mso-spacerun:yes'>Â  </span><span class=GramE><span
 style='background:yellow;mso-highlight:yellow'>print(</span></span><span
 style='background:yellow;mso-highlight:yellow'>&quot;Test accuracy:
 %.1f%%&quot; % accuracy(<span class=SpellE>test_prediction.eval</span>(), <span
